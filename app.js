@@ -36,7 +36,6 @@ entradaDeDados.question('Digite o seu nome: ', function(nome){
                         let calculo = jurosComposto.calcularJuros(principal, taxaAnual, quantidadeNoAno, tempo)
                         let tratativaIs = jurosComposto.tratativaIsNan(principal, taxaAnual, quantidadeNoAno, tempo)
                         let tratativaNumero = jurosComposto.tratativaNumeroNome(nome, produto)
-                        let tratativaPorcento = jurosComposto.tratativaPorcentagem(taxaAnual)
 
                         let mensagem = jurosComposto.resultado(nomeCliente, produto, principal, taxaAnual, quantidadeNoAno, tempo)
                     })

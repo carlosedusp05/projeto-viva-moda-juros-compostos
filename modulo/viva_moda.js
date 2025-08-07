@@ -42,7 +42,7 @@ function tratativaVazia(nomeCliente, nomeProduto, capitalInicial, jurosDecimal, 
 
 function tratativaIsNan(capitalInicial, jurosDecimal, vezesPorAno, anos){
     if(isNaN(capitalInicial) || isNaN(jurosDecimal) || isNaN(vezesPorAno) || isNaN(anos)){
-        console.log('ERRO: Existem campos que foram preenchidos incorretamente!')
+        console.log('ERRO: Existem campos que foram preenchidos com letras em campos que são números!')
         process.exit(1)
 
     }
@@ -50,23 +50,18 @@ function tratativaIsNan(capitalInicial, jurosDecimal, vezesPorAno, anos){
     return false
 }
 
-function tratativaNumeroNome(nomeCliente, nomeProduto){
-    if(!isNaN(nomeCliente), !isNaN(nomeProduto)){
-        console.log('ERRO: Existem campos que foram preenchidos incorretamente!')
+function tratativaNumeroNome(nomeCliente, nomeProduto) {
+    if (!isNaN(nomeCliente) || /\d/.test(nomeCliente) ||
+        !isNaN(nomeProduto) || /\d/.test(nomeProduto)) {
+        
+        console.log('ERRO: Existem campos que foram preenchidos com números em campos que são letras!')
         process.exit(1)
     }
-    
-    return false
+
+    return true
 }
 
-function tratativaPorcentagem(jurosDecimal){
-    if(jurosDecimal>100, jurosDecimal<0){
-        console.log('ERRO: A porcentagem só vai de 0 à 100!')
-        process.exit(1)
-    }
-    
-    return false
-}
+
 
    
 
@@ -78,5 +73,4 @@ module.exports = {
     tratativaVazia,
     tratativaIsNan,
     tratativaNumeroNome,
-    tratativaPorcentagem
 }
